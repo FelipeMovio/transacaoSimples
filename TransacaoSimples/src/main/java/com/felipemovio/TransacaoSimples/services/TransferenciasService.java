@@ -22,7 +22,7 @@ public class TransferenciasService {
     private final TransacoesRepository transacoesRepository;
 
     @Transactional
-    public void transferirValores(TransacaoDTO transacaoDTO) {
+    public Transacoes transferirValores(TransacaoDTO transacaoDTO) {
         // Lógica de transferência de valores entre contas
 
         // Buscar o usuário pagador e recebedor no banco de dados
@@ -50,7 +50,8 @@ public class TransferenciasService {
                 .pagador(pagador)
                 .recebedor(recebedor)
                 .build();
-        transacoesRepository.save(transacoes);
+        return transacoesRepository.save(transacoes);
+
 
     }
 
