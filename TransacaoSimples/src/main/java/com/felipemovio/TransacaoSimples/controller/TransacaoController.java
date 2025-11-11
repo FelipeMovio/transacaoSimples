@@ -1,5 +1,6 @@
 package com.felipemovio.TransacaoSimples.controller;
 
+import com.felipemovio.TransacaoSimples.DTO.TransacaoDTO;
 import com.felipemovio.TransacaoSimples.services.TransferenciasService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

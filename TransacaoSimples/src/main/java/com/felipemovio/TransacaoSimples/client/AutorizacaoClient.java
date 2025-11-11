@@ -1,5 +1,6 @@
 package com.felipemovio.TransacaoSimples.client;
 
+import com.felipemovio.TransacaoSimples.DTO.AutorizacaoDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 

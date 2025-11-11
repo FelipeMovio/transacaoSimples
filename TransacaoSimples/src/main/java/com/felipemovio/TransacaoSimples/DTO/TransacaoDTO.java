@@ -1,4 +1,4 @@
-package com.felipemovio.TransacaoSimples.controller;
+package com.felipemovio.TransacaoSimples.DTO;
 
 import java.math.BigDecimal;
                                             // payer = pagador
