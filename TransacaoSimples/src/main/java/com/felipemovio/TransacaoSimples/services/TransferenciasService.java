@@ -78,16 +78,13 @@ public class TransferenciasService {
 
     // validar transação
     private void validarTransferencia() {
-        try {
-            if (autorizacaoService.validarTransacao()) {
-                System.out.println("Transacao aceita");
-            } else if (!autorizacaoService.validarTransacao()) {
-                System.out.println("Transacao nao autorizada");
-            }
-        }catch (Exception e) {
-            System.out.println("Ocorreu um erro ao validar a transacao: " + e.getMessage());
-            throw new IllegalArgumentException(e.getMessage());
+        boolean autorizado = autorizacaoService.validarTransacao();
+        if (autorizado) {
+            System.out.println("Transação aceita");
+        } else {
+            throw new IllegalArgumentException("Transação não autorizada");
         }
+
     }
 
 }
