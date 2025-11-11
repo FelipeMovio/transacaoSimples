@@ -28,5 +28,7 @@ public class Usuario {
 
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Carteira carteira;
+
+    @Enumerated(EnumType.STRING)
     private TipoUsuario tipoUsuario;
 }
