@@ -1,6 +1,6 @@
 package com.felipemovio.TransacaoSimples.controller;
 
-import com.felipemovio.TransacaoSimples.DTO.response.TransacaoDTO;
+import com.felipemovio.TransacaoSimples.DTO.request.TransacaoDTO;
 import com.felipemovio.TransacaoSimples.entity.Transacoes;
 import com.felipemovio.TransacaoSimples.services.TransferenciasService;
 import lombok.RequiredArgsConstructor;

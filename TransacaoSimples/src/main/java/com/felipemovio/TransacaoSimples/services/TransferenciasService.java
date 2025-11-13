@@ -1,7 +1,7 @@
 package com.felipemovio.TransacaoSimples.services;
 
 
-import com.felipemovio.TransacaoSimples.DTO.response.TransacaoDTO;
+import com.felipemovio.TransacaoSimples.DTO.request.TransacaoDTO;
 import com.felipemovio.TransacaoSimples.entity.TipoUsuario;
 import com.felipemovio.TransacaoSimples.entity.Transacoes;
 import com.felipemovio.TransacaoSimples.entity.Usuario;
