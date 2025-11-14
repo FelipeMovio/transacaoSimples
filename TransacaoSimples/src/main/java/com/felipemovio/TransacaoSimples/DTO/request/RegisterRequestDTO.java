@@ -15,7 +15,8 @@ public class RegisterRequestDTO {
     private String cpfCnpj;
     @NotBlank
     private String senha;
-    @NotBlank
+
+
     private TipoUsuario tipoUsuario;
 
     private Role role;
