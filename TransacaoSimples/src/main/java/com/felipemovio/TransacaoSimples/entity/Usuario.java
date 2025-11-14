@@ -35,8 +35,9 @@ public class Usuario implements UserDetails {
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Carteira carteira;
 
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
-    private TipoUsuario tipoUsuario;
+    private Set<TipoUsuario> tipoUsuario = new HashSet<>();
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)

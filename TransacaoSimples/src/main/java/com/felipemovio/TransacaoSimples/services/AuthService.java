@@ -42,7 +42,9 @@ public class AuthService {
         Usuario newUser = Usuario.builder()
                 .nomeCompleto(dto.getNomeCompleto())
                 .email(dto.getEmail())
+                .cpfCnpj(dto.getCpfCnpj())
                 .senha(passwordEncoder.encode(dto.getSenha()))
+                .tipoUsuario(Set.of(tipoUsuario))
                 .roles(Set.of(role))
                 .build();
 
