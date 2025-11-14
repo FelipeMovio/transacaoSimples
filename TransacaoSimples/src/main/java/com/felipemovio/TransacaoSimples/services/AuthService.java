@@ -1,6 +1,7 @@
 package com.felipemovio.TransacaoSimples.services;
 
 import com.felipemovio.TransacaoSimples.DTO.request.RegisterRequestDTO;
+import com.felipemovio.TransacaoSimples.DTO.response.RegisterResponseDTO;
 import com.felipemovio.TransacaoSimples.entity.Role;
 import com.felipemovio.TransacaoSimples.entity.Usuario;
 import com.felipemovio.TransacaoSimples.repository.UsuarioRepository;
@@ -31,8 +32,8 @@ public class AuthService {
         }
 
 
-        Usuario newUser = Users.builder()
-                .nome(dto.getNomeCompleto())
+        Usuario newUser = Usuario.builder()
+                .nomeCompleto(dto.getNomeCompleto())
                 .email(dto.getEmail())
                 .senha(passwordEncoder.encode(dto.getSenha()))
                 .roles(Set.of(role))
@@ -40,6 +41,6 @@ public class AuthService {
 
         Usuario saved = usuarioRepository.save(newUser);
 
-        return new RegisterResponseDTO(saved.getId(), saved.getNome(), saved.getIdade(), saved.getEmail());
+        return new RegisterResponseDTO(saved.getId(), saved.getNomeCompleto(), saved.getEmail());
     }
 }
