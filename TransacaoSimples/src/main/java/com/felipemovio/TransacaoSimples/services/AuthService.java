@@ -3,6 +3,7 @@ package com.felipemovio.TransacaoSimples.services;
 import com.felipemovio.TransacaoSimples.DTO.request.RegisterRequestDTO;
 import com.felipemovio.TransacaoSimples.DTO.response.RegisterResponseDTO;
 import com.felipemovio.TransacaoSimples.entity.Role;
+import com.felipemovio.TransacaoSimples.entity.TipoUsuario;
 import com.felipemovio.TransacaoSimples.entity.Usuario;
 import com.felipemovio.TransacaoSimples.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,12 @@ public class AuthService {
             role = Role.ROLE_USER;
         }
 
+        TipoUsuario tipoUsuario;
+        if (dto.getTipoUsuario() != null){
+            tipoUsuario = dto.getTipoUsuario();
+        }else {
+            tipoUsuario = TipoUsuario.COMUN;
+        }
 
         Usuario newUser = Usuario.builder()
                 .nomeCompleto(dto.getNomeCompleto())
