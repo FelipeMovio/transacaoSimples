@@ -17,6 +17,7 @@ public class TokenConfig {
     @Value("${jwt.secret}")
     private String secret;
 
+    // geração do token
     public String generateToken(Usuario user) {
         Algorithm algorithm = Algorithm.HMAC256(secret);
 
@@ -30,6 +31,7 @@ public class TokenConfig {
                 .sign(algorithm);
     }
 
+    // validação do token
     public Optional<JWTUserData> validateToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
