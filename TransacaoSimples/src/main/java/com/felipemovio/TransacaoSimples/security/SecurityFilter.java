@@ -1,5 +1,6 @@
 package com.felipemovio.TransacaoSimples.security;
 
+import com.auth0.jwt.JWT;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,6 +17,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+
+//Ele é um filtro de segurança JWT .
+//Um filtro intercepta todas as requisições HTTP antes de chegarem nos seus controllers.
 @Component
 public class SecurityFilter extends OncePerRequestFilter {
 
