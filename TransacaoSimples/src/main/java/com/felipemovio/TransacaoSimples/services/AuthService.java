@@ -8,6 +8,7 @@ import com.felipemovio.TransacaoSimples.entity.Usuario;
 import com.felipemovio.TransacaoSimples.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 
 @Service
-public class AuthService {
+public class AuthService implements UserDetailsService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -53,5 +54,10 @@ public class AuthService {
         Usuario saved = usuarioRepository.save(newUser);
 
         return new RegisterResponseDTO(saved.getId(), saved.getNomeCompleto(), saved.getEmail());
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return usuarioRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException(username));
     }
 }
