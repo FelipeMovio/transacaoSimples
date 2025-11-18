@@ -28,7 +28,7 @@ public class PopularTabelaUsuario {
                         encoder.encode("123456"), null, Set.of(TipoUsuario.COMUN), Set.of(Role.ROLE_USER));
 
                 Usuario usuario2 = new Usuario(null, "Ana Souza", "ana@email.com", "22222222222",
-                        encoder.encode("123456"), null, Set.of(TipoUsuario.COMUN),Set.of(Role.ROLE_ADMIN));
+                        encoder.encode("123456"), null, Set.of(TipoUsuario.LOJISTA),Set.of(Role.ROLE_ADMIN));
 
                 Usuario lojista = new Usuario(null, "Loja Exemplo", "loja@email.com", "33333333333",
                         encoder.encode("123456"), null, Set.of(TipoUsuario.COMUN), Set.of(Role.ROLE_USER));
