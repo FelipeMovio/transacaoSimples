@@ -1,5 +1,14 @@
 package com.felipemovio.TransacaoSimples.DTO.response;
 
 
-public record TransacaoResponseDTO() {
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+public record TransacaoResponseDTO(
+        Long id,
+        BigDecimal valor,
+        UsuarioResumoDTO pagador,
+        UsuarioResumoDTO recebedor,
+        LocalDateTime dataHora
+) {
 }
