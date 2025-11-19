@@ -33,8 +33,6 @@ public class TransferenciasService {
         validarPagador(pagador);
         // Validar se o pagador tem saldo suficiente
         validarSaldoUsuario(pagador, transacaoDTO.value());
-        // Validar a transação com a API externa
-        validarTransferencia();
 
         // Atualizar o saldo do pagador , subtract = subtrair
         pagador.getCarteira().setSaldo(pagador.getCarteira().getSaldo().subtract(transacaoDTO.value()));
@@ -77,15 +75,5 @@ public class TransferenciasService {
 
     }
 
-    // validar transação
-    private void validarTransferencia() {
-        boolean autorizado = autorizacaoService.validarTransacao();
-        if (autorizado) {
-            System.out.println("Transação aceita");
-        } else {
-            throw new IllegalArgumentException("Transação não autorizada");
-        }
-
-    }
 
 }
