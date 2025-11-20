@@ -17,7 +17,6 @@ import java.math.BigDecimal;
 public class TransferenciasService {
 
     private final UsuarioService usuarioService;
-    private final AutorizacaoService autorizacaoService;
     private final CarteiraService carteiraService;
     private final TransacoesRepository transacoesRepository;
 
