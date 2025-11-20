@@ -1,6 +1,8 @@
 package com.felipemovio.TransacaoSimples.controller.adm;
 
+import com.felipemovio.TransacaoSimples.DTO.response.CarteiraResponseDTO;
 import com.felipemovio.TransacaoSimples.entity.Carteira;
+import com.felipemovio.TransacaoSimples.mappers.CarteiraMapper;
 import com.felipemovio.TransacaoSimples.services.CarteiraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +20,9 @@ public class AdmController {
     private CarteiraService carteiraService;
 
     @GetMapping("/carteiras")
-    public ResponseEntity<List<Carteira>> verTodas(){
+    public ResponseEntity<List<CarteiraResponseDTO>> verTodas(){
         List<Carteira> c1 = carteiraService.verTodasCarteiras();
-        return ResponseEntity.ok(c1);
+        List<CarteiraResponseDTO> response = CarteiraMapper.toDTO(c1);
+        return ResponseEntity.ok(response);
     }
 }
