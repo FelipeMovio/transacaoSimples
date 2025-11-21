@@ -19,7 +19,7 @@ public class AdmController {
     @Autowired
     private CarteiraService carteiraService;
 
-    @GetMapping("/carteiras")
+    @GetMapping("/wallet")
     public ResponseEntity<List<CarteiraResponseDTO>> verTodas(){
         List<Carteira> c1 = carteiraService.verTodasCarteiras();
         List<CarteiraResponseDTO> response = CarteiraMapper.toDTO(c1);
