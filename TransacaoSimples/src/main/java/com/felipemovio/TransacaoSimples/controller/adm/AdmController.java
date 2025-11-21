@@ -3,7 +3,9 @@ package com.felipemovio.TransacaoSimples.controller.adm;
 import com.felipemovio.TransacaoSimples.DTO.response.CarteiraResponseDTO;
 import com.felipemovio.TransacaoSimples.DTO.response.TransacoesResponseDTO;
 import com.felipemovio.TransacaoSimples.entity.Carteira;
+import com.felipemovio.TransacaoSimples.entity.Transacoes;
 import com.felipemovio.TransacaoSimples.mappers.CarteiraMapper;
+import com.felipemovio.TransacaoSimples.mappers.TransacaoMapper;
 import com.felipemovio.TransacaoSimples.services.CarteiraService;
 import com.felipemovio.TransacaoSimples.services.TransacoesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +33,10 @@ public class AdmController {
         return ResponseEntity.ok(response);
     }
 
-    public ResponseEntity<List<TransacoesResponseDTO>>
+    @GetMapping("/transacoes")
+    public ResponseEntity<List<TransacoesResponseDTO>> verAll(){
+        List<Transacoes> t1 = transacoesService.verTodas();
+        List<TransacoesResponseDTO> response = TransacaoMapper.toDTO(t1);
+        return ResponseEntity.ok(response);
+    }
 }
