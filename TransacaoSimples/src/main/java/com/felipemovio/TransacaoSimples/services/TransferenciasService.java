@@ -1,7 +1,7 @@
 package com.felipemovio.TransacaoSimples.services;
 
 
-import com.felipemovio.TransacaoSimples.DTO.request.TransacaoDTO;
+import com.felipemovio.TransacaoSimples.DTO.request.TransacaoRequestDTO;
 import com.felipemovio.TransacaoSimples.entity.TipoUsuario;
 import com.felipemovio.TransacaoSimples.entity.Transacoes;
 import com.felipemovio.TransacaoSimples.entity.Usuario;
@@ -21,29 +21,29 @@ public class TransferenciasService {
     private final TransacoesRepository transacoesRepository;
 
     @Transactional
-    public Transacoes transferirValores(TransacaoDTO transacaoDTO) {
+    public Transacoes transferirValores(TransacaoRequestDTO transacaoRequestDTO) {
         // Lógica de transferência de valores entre contas
 
         // Buscar o usuário pagador e recebedor no banco de dados
-        Usuario pagador = usuarioService.buscarPorUsuario(transacaoDTO.payer());
-        Usuario recebedor = usuarioService.buscarPorUsuario(transacaoDTO.payee());
+        Usuario pagador = usuarioService.buscarPorUsuario(transacaoRequestDTO.payer());
+        Usuario recebedor = usuarioService.buscarPorUsuario(transacaoRequestDTO.payee());
 
         // Validar se o pagador é um usuário comum
         validarPagador(pagador);
         // Validar se o pagador tem saldo suficiente
-        validarSaldoUsuario(pagador, transacaoDTO.value());
+        validarSaldoUsuario(pagador, transacaoRequestDTO.value());
 
         // Atualizar o saldo do pagador , subtract = subtrair
-        pagador.getCarteira().setSaldo(pagador.getCarteira().getSaldo().subtract(transacaoDTO.value()));
+        pagador.getCarteira().setSaldo(pagador.getCarteira().getSaldo().subtract(transacaoRequestDTO.value()));
         carteiraService.salvar(pagador.getCarteira());
 
         // Atualizar o saldo do recebedor , add = adicionar
-        recebedor.getCarteira().setSaldo(recebedor.getCarteira().getSaldo().add(transacaoDTO.value()));
+        recebedor.getCarteira().setSaldo(recebedor.getCarteira().getSaldo().add(transacaoRequestDTO.value()));
         carteiraService.salvar(recebedor.getCarteira());
 
         // Registrar a transação no banco de dados
         Transacoes transacoes = Transacoes.builder()
-                .valor(transacaoDTO.value())
+                .valor(transacaoRequestDTO.value())
                 .pagador(pagador)
                 .recebedor(recebedor)
                 .build();
