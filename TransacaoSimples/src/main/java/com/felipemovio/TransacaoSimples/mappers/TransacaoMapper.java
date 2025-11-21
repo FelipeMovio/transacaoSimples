@@ -1,8 +1,12 @@
 package com.felipemovio.TransacaoSimples.mappers;
 
+import com.felipemovio.TransacaoSimples.DTO.response.CarteiraResponseDTO;
 import com.felipemovio.TransacaoSimples.DTO.response.TransacoesResponseDTO;
 import com.felipemovio.TransacaoSimples.DTO.response.UsuarioResumoDTO;
+import com.felipemovio.TransacaoSimples.entity.Carteira;
 import com.felipemovio.TransacaoSimples.entity.Transacoes;
+
+import java.util.List;
 
 
 public class TransacaoMapper {
@@ -28,5 +32,10 @@ public class TransacaoMapper {
                 recebedor,
                 t.getDataHoraTransacao()
         );
+    }
+    public static List<TransacoesResponseDTO> toDTO(List<Transacoes> transacoes) {
+        return transacoes.stream()
+                .map(TransacaoMapper::toDTO)
+                .toList();
     }
 }
