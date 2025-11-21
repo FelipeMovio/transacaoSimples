@@ -1,13 +1,13 @@
 package com.felipemovio.TransacaoSimples.mappers;
 
-import com.felipemovio.TransacaoSimples.DTO.response.TransacaoResponseDTO;
+import com.felipemovio.TransacaoSimples.DTO.response.TransacoesResponseDTO;
 import com.felipemovio.TransacaoSimples.DTO.response.UsuarioResumoDTO;
 import com.felipemovio.TransacaoSimples.entity.Transacoes;
 
 
 public class TransacaoMapper {
 
-    public static TransacaoResponseDTO toDTO(Transacoes t) {
+    public static TransacoesResponseDTO toDTO(Transacoes t) {
 
         UsuarioResumoDTO pagador = new UsuarioResumoDTO(
                 t.getPagador().getId(),
@@ -21,7 +21,7 @@ public class TransacaoMapper {
                 t.getRecebedor().getEmail()
         );
 
-        return new TransacaoResponseDTO(
+        return new TransacoesResponseDTO(
                 t.getId(),
                 t.getValor(),
                 pagador,

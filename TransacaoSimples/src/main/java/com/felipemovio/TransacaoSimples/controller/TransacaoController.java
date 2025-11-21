@@ -1,7 +1,7 @@
 package com.felipemovio.TransacaoSimples.controller;
 
 import com.felipemovio.TransacaoSimples.DTO.request.TransacaoRequestDTO;
-import com.felipemovio.TransacaoSimples.DTO.response.TransacaoResponseDTO;
+import com.felipemovio.TransacaoSimples.DTO.response.TransacoesResponseDTO;
 import com.felipemovio.TransacaoSimples.entity.Transacoes;
 import com.felipemovio.TransacaoSimples.mappers.TransacaoMapper;
 import com.felipemovio.TransacaoSimples.services.TransferenciasService;
@@ -22,9 +22,9 @@ public class TransacaoController {
     private TransferenciasService transferenciasService;
 
     @PostMapping
-    public ResponseEntity<TransacaoResponseDTO> realizarTransacao(@RequestBody TransacaoRequestDTO transacaoRequestDTO){
+    public ResponseEntity<TransacoesResponseDTO> realizarTransacao(@RequestBody TransacaoRequestDTO transacaoRequestDTO){
         Transacoes transacoes = transferenciasService.transferirValores(transacaoRequestDTO);
-        TransacaoResponseDTO response = TransacaoMapper.toDTO(transacoes);
+        TransacoesResponseDTO response = TransacaoMapper.toDTO(transacoes);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
