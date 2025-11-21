@@ -1,4 +1,4 @@
-package com.felipemovio.TransacaoSimples.controller;
+package com.felipemovio.TransacaoSimples.controller.users;
 
 import com.felipemovio.TransacaoSimples.DTO.request.TransacaoRequestDTO;
 import com.felipemovio.TransacaoSimples.DTO.response.TransacoesResponseDTO;

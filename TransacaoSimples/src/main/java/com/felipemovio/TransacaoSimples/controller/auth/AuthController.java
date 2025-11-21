@@ -1,4 +1,4 @@
-package com.felipemovio.TransacaoSimples.controller;
+package com.felipemovio.TransacaoSimples.controller.auth;
 
 import com.felipemovio.TransacaoSimples.DTO.request.LoginRequestDTO;
 import com.felipemovio.TransacaoSimples.DTO.request.RegisterRequestDTO;
