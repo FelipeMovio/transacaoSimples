@@ -1,7 +1,12 @@
 package com.felipemovio.TransacaoSimples.DTO.request;
 
+import jakarta.validation.constraints.NotNull;
+
 import java.math.BigDecimal;
                                             // payer = pagador
                                             // payee = recebedor
-public record TransacaoRequestDTO(BigDecimal value, Long payer, Long payee) {
+public record TransacaoRequestDTO(
+     @NotNull BigDecimal value,
+     @NotNull Long payer,
+     @NotNull Long payee) {
 }
