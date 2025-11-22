@@ -8,7 +8,9 @@ import com.felipemovio.TransacaoSimples.entity.Usuario;
 import com.felipemovio.TransacaoSimples.repository.TransacoesRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 
@@ -63,16 +65,11 @@ public class TransferenciasService {
 
     // validar saldo usuario
     private void validarSaldoUsuario(Usuario usuario, BigDecimal valor) {
-
-        try {
-            if (usuario.getCarteira().getSaldo().compareTo(valor) < 0) {
-                throw new IllegalArgumentException("Saldo insuficiente para realizar a transferência.");
-            }
-        } catch (Exception e) {
-            throw new IllegalArgumentException(e.getMessage());
+        if (usuario.getCarteira().getSaldo().compareTo(valor) < 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Saldo insuficiente para realizar a transferência.");
         }
-
     }
+
 
 
 }
