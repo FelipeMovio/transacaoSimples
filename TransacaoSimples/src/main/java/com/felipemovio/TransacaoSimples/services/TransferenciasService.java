@@ -30,6 +30,12 @@ public class TransferenciasService {
         Usuario pagador = usuarioService.buscarPorUsuario(transacaoRequestDTO.payer());
         Usuario recebedor = usuarioService.buscarPorUsuario(transacaoRequestDTO.payee());
 
+        // nao pode se auto mandar dinheiro
+        if (transacaoRequestDTO.payer().equals(transacaoRequestDTO.payee())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Não é permitido transferir para si mesmo.");
+        }
+
+
         // Validar se o pagador é um usuário comum
         validarPagador(pagador);
         // Validar se o pagador tem saldo suficiente
