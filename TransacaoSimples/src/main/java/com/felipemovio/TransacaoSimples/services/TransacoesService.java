@@ -16,4 +16,9 @@ public class TransacoesService {
     public List<Transacoes> verTodas(){
         return transacoesRepository.findAll();
     }
+
+    // ver Todas por ID
+    public List<Transacoes> verTodasById(Long id){
+        return transacoesRepository.findAllByPagadorId(id);
+    }
 }
