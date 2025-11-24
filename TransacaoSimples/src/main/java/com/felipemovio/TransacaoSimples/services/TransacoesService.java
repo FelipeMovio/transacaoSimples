@@ -18,8 +18,12 @@ public class TransacoesService {
     }
 
     // ver Todas por ID
-    public List<Transacoes> verTodasById(Long id){
+    public List<Transacoes> verTodasPagadorById(Long id){
         return transacoesRepository.findAllByPagadorId(id);
+    }
+
+    public List<Transacoes> verTodasRecebedorById(Long id){
+        return transacoesRepository.findAllByRecebedorId(id);
     }
 
 }
