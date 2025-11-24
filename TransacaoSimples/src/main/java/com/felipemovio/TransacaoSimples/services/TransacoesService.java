@@ -21,4 +21,5 @@ public class TransacoesService {
     public List<Transacoes> verTodasById(Long id){
         return transacoesRepository.findAllByPagadorId(id);
     }
+
 }
