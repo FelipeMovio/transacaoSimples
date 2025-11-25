@@ -45,7 +45,11 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
     @GetMapping("/transfer/recebedor/{id}")
+    public ResponseEntity<List<TransacoesResponseDTO>> verTodasTransacoesDoUserRecebedor(@PathVariable Long id ){
+        List <Transacoes> transacoes = transacoesService.verTodasRecebedorById(id);
+        List <TransacoesResponseDTO> response = TransacaoMapper.toDTO(transacoes);
 
+    }
 
 
 }
