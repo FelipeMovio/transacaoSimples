@@ -44,6 +44,8 @@ public class UserController {
         }
         return ResponseEntity.ok(response);
     }
+    @GetMapping("/transfer/recebedor/{id}")
+
 
 
 }
