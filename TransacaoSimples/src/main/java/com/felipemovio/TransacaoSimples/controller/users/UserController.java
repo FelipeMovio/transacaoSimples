@@ -48,7 +48,10 @@ public class UserController {
     public ResponseEntity<List<TransacoesResponseDTO>> verTodasTransacoesDoUserRecebedor(@PathVariable Long id ){
         List <Transacoes> transacoes = transacoesService.verTodasRecebedorById(id);
         List <TransacoesResponseDTO> response = TransacaoMapper.toDTO(transacoes);
-
+        if (response.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(response);
     }
 
 
