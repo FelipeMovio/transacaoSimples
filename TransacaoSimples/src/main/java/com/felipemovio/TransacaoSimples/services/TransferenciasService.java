@@ -62,9 +62,9 @@ public class TransferenciasService {
 
     //validar se nosso pagador nao é um lojista
     private void validarPagador(Usuario usuario) {
-        if (usuario.getTipoUsuario().equals(TipoUsuario.LOJISTA)) {
+        if (usuario.getTipoUsuario().contains(TipoUsuario.LOJISTA)) {
             throw new IllegalArgumentException("Lojistas não podem realizar transferências.");
-        } else if (usuario.getTipoUsuario().equals(TipoUsuario.COMUN)) {
+        } else if (usuario.getTipoUsuario().contains(TipoUsuario.COMUN)) {
             return;
         }
     }
