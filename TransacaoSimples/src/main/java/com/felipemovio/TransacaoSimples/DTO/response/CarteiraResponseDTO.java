@@ -5,6 +5,6 @@ import java.math.BigDecimal;
 public record CarteiraResponseDTO(
         Long id,
         BigDecimal saldo,
-        UsuarioResumoDTO usuario
+        UsuarioResumoResponseDTO usuario
 ) {
 }

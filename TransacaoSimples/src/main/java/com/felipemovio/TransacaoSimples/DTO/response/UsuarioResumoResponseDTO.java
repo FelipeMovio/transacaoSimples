@@ -1,6 +1,6 @@
 package com.felipemovio.TransacaoSimples.DTO.response;
 
-public record UsuarioResumoDTO(
+public record UsuarioResumoResponseDTO(
         Long id,
         String nomeCompleto,
         String email

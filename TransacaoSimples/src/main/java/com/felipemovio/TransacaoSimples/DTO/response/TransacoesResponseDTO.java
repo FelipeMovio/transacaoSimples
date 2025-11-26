@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 public record TransacoesResponseDTO(
         Long id,
         BigDecimal valor,
-        UsuarioResumoDTO pagador,
-        UsuarioResumoDTO recebedor,
+        UsuarioResumoResponseDTO pagador,
+        UsuarioResumoResponseDTO recebedor,
         LocalDateTime dataHora
 ) {
 }

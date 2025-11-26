@@ -2,7 +2,7 @@ package com.felipemovio.TransacaoSimples.DTO.response;
 
 import java.util.Set;
 
-public record UsuarioDetalhesDTO(
+public record UsuarioDetalhesResponseDTO(
         Long id,
         String nomeCompleto,
         String email,

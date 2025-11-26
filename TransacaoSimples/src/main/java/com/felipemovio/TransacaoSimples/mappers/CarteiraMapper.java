@@ -1,7 +1,7 @@
 package com.felipemovio.TransacaoSimples.mappers;
 
 import com.felipemovio.TransacaoSimples.DTO.response.CarteiraResponseDTO;
-import com.felipemovio.TransacaoSimples.DTO.response.UsuarioResumoDTO;
+import com.felipemovio.TransacaoSimples.DTO.response.UsuarioResumoResponseDTO;
 import com.felipemovio.TransacaoSimples.entity.Carteira;
 
 import java.util.List;
@@ -10,7 +10,7 @@ public class CarteiraMapper {
 
     // Converter um único objeto
     public static CarteiraResponseDTO toDTO(Carteira c) {
-        UsuarioResumoDTO usuarioDTO = new UsuarioResumoDTO(
+        UsuarioResumoResponseDTO usuarioDTO = new UsuarioResumoResponseDTO(
                 c.getUsuario().getId(),
                 c.getUsuario().getNomeCompleto(),
                 c.getUsuario().getEmail()

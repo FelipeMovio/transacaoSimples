@@ -1,7 +1,7 @@
 package com.felipemovio.TransacaoSimples.controller.users;
 
 import com.felipemovio.TransacaoSimples.DTO.response.TransacoesResponseDTO;
-import com.felipemovio.TransacaoSimples.DTO.response.UsuarioDetalhesDTO;
+import com.felipemovio.TransacaoSimples.DTO.response.UsuarioDetalhesResponseDTO;
 import com.felipemovio.TransacaoSimples.entity.Transacoes;
 import com.felipemovio.TransacaoSimples.entity.Usuario;
 import com.felipemovio.TransacaoSimples.mappers.TransacaoMapper;
@@ -29,9 +29,9 @@ public class UserController {
     private TransacoesService transacoesService;
 
     @GetMapping("/me")
-    public ResponseEntity<UsuarioDetalhesDTO> verUserLogado() {
+    public ResponseEntity<UsuarioDetalhesResponseDTO> verUserLogado() {
         Usuario u = usuarioService.verConta();
-        UsuarioDetalhesDTO response = UsuarioMapper.toDTO(u);
+        UsuarioDetalhesResponseDTO response = UsuarioMapper.toDTO(u);
         return ResponseEntity.ok(response);
     }
 
